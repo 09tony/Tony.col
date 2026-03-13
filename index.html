@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Tony Styles — Performance copywriter for pet and baby brands. Emails that get opened. Pages that convert. Revenue that grows."/>
+<title>Tony Styles · GrowthEngine Copywriting</title>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+/* ── HOMEPAGE EXTRAS ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding: 120px 0 80px;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 65% 40%, rgba(201,168,76,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 70%, rgba(10,191,188,0.05) 0%, transparent 50%);
+}
+.hero-grain {
+  position: absolute; inset: 0; opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero-content { position: relative; max-width: 680px; }
+.hero-eyebrow { margin-bottom: 24px; }
+.hero h1 { margin-bottom: 24px; }
+.hero h1 em { display: block; }
+.hero-sub { font-size: 18px; color: rgba(248,250,255,0.6); max-width: 540px; margin-bottom: 40px; line-height: 1.8; }
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+.hero-proof { display: flex; align-items: center; gap: 20px; }
+.hero-proof-divider { width: 1px; height: 32px; background: var(--border2); }
+.hero-proof-text { font-size: 13px; color: var(--slate); }
+.hero-proof-text strong { color: var(--white); display: block; font-size: 15px; }
+.hero-visual {
+  position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  border: 1px solid rgba(201,168,76,0.08);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-monogram {
+  font-family: var(--font-head); font-size: 180px; font-weight: 900;
+  color: rgba(201,168,76,0.07); line-height: 1;
+  user-select: none;
+}
+/* floating cards */
+.hero-float {
+  position: absolute;
+  background: var(--card); border: 1px solid var(--border2);
+  border-radius: 12px; padding: 14px 18px;
+  font-size: 13px; font-weight: 600;
+}
+.hf1 { right: 280px; top: 28%; }
+.hf2 { right: 120px; bottom: 32%; }
+.hf1 span, .hf2 span { color: var(--teal); font-size: 20px; }
+
+/* problem section */
+.problem-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.problem-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 28px;
+  border-top: 3px solid var(--red);
+}
+.problem-icon { font-size: 32px; margin-bottom: 16px; }
+.problem-card h4 { margin-bottom: 10px; color: var(--white); }
+.problem-card p { font-size: 14px; }
+
+/* promise section */
+.promise-section { background: var(--ink); }
+.promise-item { display: flex; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+.promise-item:last-child { border-bottom: none; }
+.promise-num {
+  font-family: var(--font-head); font-size: 48px; font-weight: 900;
+  color: rgba(201,168,76,0.15); line-height: 1; flex-shrink: 0; width: 60px;
+}
+.promise-item h3 { margin-bottom: 8px; font-size: 24px; }
+
+/* result cards */
+.result-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); overflow: hidden;
+}
+.result-card-top { padding: 24px 24px 0; }
+.result-card-stat {
+  font-family: var(--font-head); font-size: 44px; font-weight: 900;
+  color: var(--gold); margin-bottom: 6px;
+}
+.result-card-label { font-size: 12px; color: var(--slate); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+.result-card-desc { font-size: 14px; line-height: 1.65; margin-bottom: 20px; }
+.result-card-bottom {
+  background: rgba(255,255,255,0.02); border-top: 1px solid var(--border);
+  padding: 16px 24px; display: flex; align-items: center; gap: 10px;
+}
+.result-tag { background: var(--gold-dim); color: var(--gold); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; letter-spacing: 0.05em; }
+
+/* audit section */
+.audit-section {
+  background: linear-gradient(135deg, #111A28, #0D1520);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.audit-inner {
+  max-width: 640px; margin: 0 auto; text-align: center;
+}
+.audit-form { display: flex; gap: 12px; margin-top: 28px; }
+.audit-form .form-control { flex: 1; }
+
+/* stats bar */
+.stats-bar { background: var(--ink); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 48px 0; }
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+.stats-grid .stat { border-right: 1px solid var(--border); padding: 0 40px; }
+.stats-grid .stat:last-child { border-right: none; }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">
+      Tony Styles
+      <span class="logo-sub">GrowthEngine · Copywriting</span>
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="results.html">Results</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html" class="nav-cta">Get Free Audit</a>
+    </div>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+  <button class="close-menu">✕</button>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="results.html">Results</a>
+  <a href="insights.html">Insights</a>
+  <a href="contact.html" class="nav-cta">Get Free Audit</a>
+</div>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="container" style="position:relative">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="badge badge-gold">✦ Performance Copywriting · Pets & Baby Brands</span>
+      </div>
+      <h1 class="fade-up">
+        Your Brand Deserves Copy That Sells As Hard
+        <em>As Your Product Works.</em>
+      </h1>
+      <p class="hero-sub fade-up-2">
+        I'm Tony Styles. I write emails, landing pages, and product copy that turn browsers into buyers — for the brands that matter most to families and their pets.
+      </p>
+      <div class="hero-ctas fade-up-3">
+        <a href="contact.html" class="btn btn-gold btn-lg">Get a Free Copy Audit →</a>
+        <a href="results.html" class="btn btn-outline btn-lg">See Real Results</a>
+      </div>
+      <div class="hero-proof fade-up-3">
+        <div class="avail-dot">2 client spots open this quarter</div>
+        <div class="hero-proof-divider"></div>
+        <div class="hero-proof-text">
+          <strong>48-Hour</strong>
+          free audit turnaround
+        </div>
+        <div class="hero-proof-divider"></div>
+        <div class="hero-proof-text">
+          <strong>Performance-Based</strong>
+          pricing available
+        </div>
+      </div>
+    </div>
+    <!-- Visual -->
+    <div class="hero-visual">
+      <div class="hero-monogram">TS</div>
+    </div>
+    <div class="hero-float hf1"><span>📈</span> +47% email revenue</div>
+    <div class="hero-float hf2"><span>🐾</span> 12 brands grown</div>
+  </div>
+</section>
+
+<!-- ═══ TRUST BAR ═══════════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-value">47%</div>
+        <div class="stat-label">Average email revenue lift</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">12+</div>
+        <div class="stat-label">Pet & baby brands grown</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">$380K</div>
+        <div class="stat-label">Revenue influenced by copy</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">48hr</div>
+        <div class="stat-label">Free audit turnaround</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PROBLEM ═════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="label">The Problem</span>
+      <h2>Your product is great.<br/>Your copy isn't selling it.</h2>
+      <p>Most pet and baby brands lose thousands every month not because their product is wrong — but because the words around it are.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon">📧</div>
+        <h4>Emails Nobody Opens</h4>
+        <p>Generic subject lines. Bland body copy. Your subscribers signed up because they trusted you — then stopped opening because the emails felt like everyone else's.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">🛒</div>
+        <h4>Product Pages That Don't Convert</h4>
+        <p>Feature lists. Bullet points. Spec sheets. But parents and pet owners don't buy specs — they buy peace of mind, love, and confidence. Your page isn't speaking their language.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon">💸</div>
+        <h4>Ad Spend With No Return</h4>
+        <p>You're paying for clicks. But the copy isn't finishing the job. Every click that doesn't convert is money that should have stayed in your pocket.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROMISE ══════════════════════════════════════════════════ -->
+<section class="section promise-section">
+  <div class="container">
+    <div class="grid-2" style="gap:80px;align-items:center">
+      <div>
+        <span class="label" style="display:block;margin-bottom:14px">What Changes</span>
+        <h2 style="margin-bottom:8px">Here's what happens when you work with me.</h2>
+        <div class="divider-gold"></div>
+      </div>
+      <div>
+        <div class="promise-item">
+          <div class="promise-num">01</div>
+          <div>
+            <h3>Your emails get <em>opened</em>.</h3>
+            <p>Subject lines engineered for the curious, protective mind of a pet owner or new parent. Open rates that make your list an asset again.</p>
+          </div>
+        </div>
+        <div class="promise-item">
+          <div class="promise-num">02</div>
+          <div>
+            <h3>Your pages get <em>read</em>.</h3>
+            <p>Copy that meets your customer exactly where they are — worried, excited, overwhelmed — and guides them with clarity to the buy button.</p>
+          </div>
+        </div>
+        <div class="promise-item">
+          <div class="promise-num">03</div>
+          <div>
+            <h3>Your products get <em>bought</em>.</h3>
+            <p>Revenue that reflects the quality of what you've built. Not because you lowered the price — because the words finally match the product.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESULTS PREVIEW ══════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Results</span>
+      <h2>Copy that moves the needle.</h2>
+      <p>Real outcomes from pet and baby brands. Numbers, not promises.</p>
+    </div>
+    <div class="grid-3" style="margin-bottom:40px">
+      <div class="result-card reveal">
+        <div class="result-card-top">
+          <div class="result-card-stat">+47%</div>
+          <div class="result-card-label">Email Revenue · 30 Days</div>
+          <p class="result-card-desc">A dog supplement brand's welcome sequence was rebuilt from scratch. Open rates jumped from 18% to 41%. Revenue from email doubled in the first month.</p>
+        </div>
+        <div class="result-card-bottom">
+          <div class="result-tag">🐶 Pet Supplements</div>
+          <div class="result-tag">📧 Email</div>
+        </div>
+      </div>
+      <div class="result-card reveal">
+        <div class="result-card-top">
+          <div class="result-card-stat">+$14K</div>
+          <div class="result-card-label">Revenue · 45 Days</div>
+          <p class="result-card-desc">An organic baby food brand's product descriptions were rewritten to speak to new parent anxieties. Cart abandonment dropped 22%. Sales climbed $14K in 45 days.</p>
+        </div>
+        <div class="result-card-bottom">
+          <div class="result-tag">👶 Baby Food</div>
+          <div class="result-tag">🛒 Product Pages</div>
+        </div>
+      </div>
+      <div class="result-card reveal">
+        <div class="result-card-top">
+          <div class="result-card-stat">3.8×</div>
+          <div class="result-card-label">Ad ROAS Improvement</div>
+          <p class="result-card-desc">A cat accessories brand's Facebook ad copy was stale and feature-heavy. Three new angles and benefit-led hooks tripled their return on ad spend in six weeks.</p>
+        </div>
+        <div class="result-card-bottom">
+          <div class="result-tag">🐱 Cat Accessories</div>
+          <div class="result-tag">📱 Ad Copy</div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="results.html" class="btn btn-outline">See All Case Studies →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES PREVIEW ══════════════════════════════════════════ -->
+<section class="section" style="background:var(--ink)">
+  <div class="container">
+    <div class="section-header center">
+      <span class="label">How We Work Together</span>
+      <h2>Three ways to grow with copy.</h2>
+      <p>From your first project to a full growth partnership — there's a plan built for where you are right now.</p>
+    </div>
+    <div class="grid-3">
+      <div class="tier" style="background:var(--card)">
+        <div class="tier-label teal">Tier 1</div>
+        <div class="tier-name">Starter Copy</div>
+        <div class="tier-price">$500<span>/ project</span></div>
+        <div class="tier-desc">One focused project to prove what great copy does for your brand. Low risk. High signal.</div>
+        <ul class="tier-features">
+          <li><span class="check">✓</span> Product descriptions or email sequence</li>
+          <li><span class="check">✓</span> Ad copy (3 variants)</li>
+          <li><span class="check">✓</span> One round of revisions</li>
+          <li><span class="check">✓</span> 7–14 day delivery</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+      </div>
+      <div class="tier tier-popular">
+        <div class="tier-popular-badge">✦ Most Popular</div>
+        <div class="tier-label" style="color:var(--gold)">Tier 2</div>
+        <div class="tier-name">Performance Copy</div>
+        <div class="tier-price">$1,500<span>/ month + bonus</span></div>
+        <div class="tier-desc">Monthly retainer with a performance bonus tied to measurable results. I win when you win.</div>
+        <ul class="tier-features">
+          <li><span class="check check-gold">✓</span> Full email marketing management</li>
+          <li><span class="check check-gold">✓</span> Landing & sales page copy</li>
+          <li><span class="check check-gold">✓</span> Monthly ad copy refresh</li>
+          <li><span class="check check-gold">✓</span> Bi-weekly strategy call</li>
+          <li><span class="check check-gold">✓</span> Performance bonus on revenue lift</li>
+        </ul>
+        <a href="contact.html" class="btn btn-gold" style="width:100%;justify-content:center">Apply Now →</a>
+      </div>
+      <div class="tier" style="background:var(--card)">
+        <div class="tier-label teal">Tier 3 · Elite</div>
+        <div class="tier-name">Growth Partnership</div>
+        <div class="tier-price" style="font-size:24px">Equity-Based<span></span></div>
+        <div class="tier-desc">Deep partnership with a stake in your brand's growth. For established brands ready to scale hard.</div>
+        <ul class="tier-features">
+          <li><span class="check">✓</span> Full copy function outsourced</li>
+          <li><span class="check">✓</span> Sales funnel architecture</li>
+          <li><span class="check">✓</span> Growth strategy + offer consulting</li>
+          <li><span class="check">✓</span> Equity or revenue share</li>
+          <li><span class="check">✓</span> Application only · 2 spots/year</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center">Request a Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FREE AUDIT CTA ════════════════════════════════════════════ -->
+<section class="section audit-section" id="audit">
+  <div class="container">
+    <div class="audit-inner">
+      <span class="badge badge-teal" style="margin-bottom:20px">Free · No Obligation · 48-Hour Turnaround</span>
+      <h2 style="margin-bottom:16px">Is your copy costing you sales?</h2>
+      <p style="margin-bottom:8px">Paste your website URL and I'll send you a personal Loom video audit of your copy — completely free. No pitch. Just honest feedback and one quick fix you can implement today.</p>
+      <div id="auditFormWrap">
+        <form data-form="audit" data-success="auditSuccess">
+          <div class="audit-form">
+            <input type="text" name="name" placeholder="Your name" class="form-control" required/>
+            <input type="email" name="email" placeholder="Email address" class="form-control" required/>
+          </div>
+          <div class="form-group" style="margin-top:12px">
+            <input type="url" name="website" placeholder="Your website URL (e.g. https://yourpetbrand.com)" class="form-control" required/>
+          </div>
+          <button type="submit" class="btn btn-gold btn-lg" style="width:100%;justify-content:center;margin-top:8px">
+            Send Me the Free Audit →
+          </button>
+          <p style="font-size:12px;margin-top:12px;text-align:center">Tony personally reviews every submission. Delivered within 48 hours.</p>
+        </form>
+      </div>
+      <div class="success-box" id="auditSuccess">
+        <div class="success-icon">🎉</div>
+        <h3>You're in! Audit on its way.</h3>
+        <p>Tony will review your copy and send you a personal Loom video within 48 hours. Check your inbox.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="label">What Clients Say</span>
+      <h2>Words from the brands I've grown.</h2>
+    </div>
+    <div class="grid-3">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Tony rewrote our entire email welcome sequence and open rates went from 19% to 43% in the first week. Then sales started climbing. I genuinely didn't expect it to work that fast."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div><div class="author-name">Sarah M.</div><div class="author-role">Founder · Happy Paws Supplements</div></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Our product page copy was decent but the results were not. Tony identified exactly what was missing — emotion and specificity. After his rewrite, cart abandonment dropped 22%. Worth every dollar."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">J</div>
+          <div><div class="author-name">James K.</div><div class="author-role">CEO · Little Sprouts Baby</div></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I've hired 3 copywriters before Tony. They all wrote copy that sounded like copy. Tony writes like he knows my customer better than I do. The ad ROAS improvement was real and measurable."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div><div class="author-name">Amara T.</div><div class="author-role">Director · Purrfect Life Co.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Tony Styles<span class="logo-sub">GrowthEngine · Copywriting</span></a>
+        <p style="margin-top:16px">Performance copywriting for pet and baby brands that are serious about growth. Emails. Pages. Ads. Copy that converts.</p>
+        <div class="avail-dot" style="margin-top:20px">2 spots available this quarter</div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Tony</a>
+        <a href="services.html">Services</a>
+        <a href="results.html">Results</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="services.html#tier1">Starter Copy</a>
+        <a href="services.html#tier2">Performance Copy</a>
+        <a href="services.html#tier3">Growth Partnership</a>
+        <a href="contact.html#audit">Free Copy Audit</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="contact.html">Apply to Work Together</a>
+        <a href="contact.html#audit">Request Free Audit</a>
+        <a href="contact.html#book">Book a Strategy Call</a>
+        <a href="mailto:tony@growthengine.com">tony@growthengine.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Tony Styles · GrowthEngine Copywriting · tony.styles.growthengine.com</p>
+      <div class="footer-social">
+        <a href="#" title="LinkedIn">in</a>
+        <a href="#" title="Twitter/X">𝕏</a>
+        <a href="#" title="Instagram">◎</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
